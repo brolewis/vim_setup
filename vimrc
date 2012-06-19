@@ -15,11 +15,14 @@ set nocompatible           " Don't be compatible with vi
 colors zenburn             " Awesomest theme EVAR
 set guifont=Consolas:h12   " BEST. FONT. EVER.
 set nowrap                 " Don't wrap text
+" Intuitive backspacing in insert mode
+set backspace=indent,eol,start
 
 " Line Numbering
 set number                 " Display line numbers
 set ruler                  " Display cursor position
 set title                  " show title in console title bar
+let &titleold='bash'       " revert title to 'bash'
 set cursorline             " Highlight the current line
 set spelllang=en_us        " Set spell checking language
 
@@ -49,6 +52,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-h> <C-w>h
 " Search
+set hlsearch               " Highlight search terms
+set incsearch              " Dynamically highlight as typed
 set ignorecase             " Ignore case when searching
 set smartcase              " Case sensitive when caps are present
 
@@ -106,4 +111,5 @@ let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
 let g:pep8_map='<leader>8'
 let g:pylint_map='<leader>l'
 
-let &titleold='bash'
+" Toggle Gundo
+nnoremap <leader>u :GundoToggle<CR>
