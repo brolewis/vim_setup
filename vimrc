@@ -10,7 +10,7 @@ behave mswin
 " Basic Settings
 syntax on                  " syntax highlighing
 filetype on                " try to detect filetypes
-filetype plugin indent on  " enable loading indent file for filetype
+filetype plugin indent on  " enable plugins for filetype
 set nocompatible           " Don't be compatible with vi
 colors zenburn             " Awesomest theme EVAR
 set guifont=Consolas:h12   " BEST. FONT. EVER.
