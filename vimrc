@@ -19,7 +19,6 @@ set nowrap                 " Don't wrap text
 " Line Numbering
 set number                 " Display line numbers
 set ruler                  " Display cursor position
-set numberwidth=1          " using only 1 column (and 1 space) when possible
 set title                  " show title in console title bar
 set cursorline             " Highlight the current line
 set spelllang=en_us        " Set spell checking language
