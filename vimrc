@@ -39,6 +39,11 @@ imap <silent> <C-S-Tab> <Esc>:tabprevious<CR>
 map <silent> <C-t> :tabnew<CR>
 imap <silent> <C-t> <Esc><C-t>
 
+" Window motion
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
 " Search
 set ignorecase             " Ignore case when searching
 set smartcase              " Case sensitive when caps are present
@@ -100,3 +105,5 @@ let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
 " Python tools
 let g:pep8_map='<leader>8'
 let g:pylint_map='<leader>l'
+
+let &titleold='bash'
