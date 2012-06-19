@@ -3,6 +3,10 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+" Windows-like behavior
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
 " Basic Settings
 syntax on                  " syntax highlighing
 filetype on                " try to detect filetypes
@@ -14,6 +18,7 @@ set nowrap                 " Don't wrap text
 
 " Line Numbering
 set number                 " Display line numbers
+set ruler                  " Display cursor position
 set numberwidth=1          " using only 1 column (and 1 space) when possible
 set title                  " show title in console title bar
 set cursorline             " Highlight the current line
@@ -56,10 +61,6 @@ set shiftround             " indent/outdent to nearest tabstops
 set autoindent             " Auto indent
 set list                   " Print all characters
 set listchars=tab:>-       " Show tab chars clearly
-
-" Windows-like behavior
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 " Set leader charachter to <space>
 let mapleader = " "
