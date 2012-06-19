@@ -113,3 +113,11 @@ let g:pylint_map='<leader>l'
 
 " Toggle Gundo
 nnoremap <leader>u :GundoToggle<CR>
+
+" Supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menu,longest,preview
+" Close the scratch window after autocomplete finished
+autocmd CursorMovedI * if pumvisible() == 0 && bufname("%") != "[Command Line]"|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0  && bufname("%") != "[Command Line]"|pclose|endif
