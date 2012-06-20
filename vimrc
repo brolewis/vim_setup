@@ -38,6 +38,14 @@ set guioptions-=T          " Hide the toolbar
 set guioptions-=m          " Hide the menu bar
 set tabpagemax=100         " Increase max tab pages
 
+" Vim Tab behavior
+map <silent> <C-Tab> :tabnext<CR>
+imap <silent> <C-Tab> <Esc>:tabnext<CR>
+map <silent> <C-S-Tab> :tabprevious<CR>
+imap <silent> <C-S-Tab> <Esc>:tabprevious<CR>
+map <silent> <C-t> :tabnew<CR>
+imap <silent> <C-t> <Esc><C-t>
+
 " Search
 set hlsearch               " Highlight search terms
 set incsearch              " Dynamically highlight as typed
@@ -108,8 +116,3 @@ set completeopt=menu,longest,preview
 " Close the scratch window after autocomplete finished
 autocmd CursorMovedI * if pumvisible() == 0 && bufname("%") != "[Command Line]"|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0  && bufname("%") != "[Command Line]"|pclose|endif
-
-" MiniBufExplorer
-let g:miniBufExplMapCTabSwitchBufs=1  " C-Tab and C-S-Tab for buffer switching
-let g:miniBufExplCheckDupeBufs=0      " Don't check for duplicates (faster)
-let g:miniBufExplForceSyntaxEnable=1  " Try to force syntax highlighting
