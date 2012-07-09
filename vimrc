@@ -23,7 +23,6 @@ set ruler                         " Display cursor position
 set title                         " show title in console title bar
 let &titleold='bash'              " revert title to 'bash'
 set cursorline                    " Highlight the current line
-set scrolloff=3                   " Keep 3 context lines above and below the cursor
 set showmatch                     " Briefly jump to a paren once it's balanced
 set backspace=indent,eol,start    " Intuitive backspacing in insert mode
 set spelllang=en_us               " Set spell checking language
@@ -127,6 +126,9 @@ nnoremap <leader>u :GundoToggle<CR>
 " Supertab
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabMappingForward = '<c-space>'
+let g:SuperTabMappingBackward = '<s-c-space>'
+
 set completeopt=menu,longest,preview
 set pumheight=6  " Keep a small completion window
 " Close the scratch window after autocomplete finished
