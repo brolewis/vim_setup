@@ -39,6 +39,11 @@ set guioptions-=T                 " Hide the toolbar
 set guioptions-=m                 " Hide the menu bar
 set tabpagemax=100                " Increase max tab pages
 
+" Code folding
+set foldmethod=indent             " Fold code on indent
+set foldlevel=99                  " Open the file with all code unfolded
+map <leader>f za                  " Remap code folding key
+
 " Vim Tab behavior
 map <silent> <C-Tab> :tabnext<CR>
 imap <silent> <C-Tab> <Esc>:tabnext<CR>
