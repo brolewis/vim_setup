@@ -121,21 +121,10 @@ map <F12> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
 
 " Python tools
-let g:pep8_map='<leader>8'
+"let g:pep8_map='<leader>8'
+autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 
 " Toggle Gundo
 nnoremap <leader>u :GundoToggle<CR>
-
-" Supertab
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabMappingForward = '<c-space>'
-let g:SuperTabMappingBackward = '<s-c-space>'
-
-set completeopt=menu,longest,preview
-set pumheight=6  " Keep a small completion window
-" Close the scratch window after autocomplete finished
-autocmd CursorMovedI * if pumvisible() == 0 && bufname("%") != "[Command Line]"|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0  && bufname("%") != "[Command Line]"|pclose|endif
