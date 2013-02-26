@@ -128,3 +128,6 @@ let g:pyflakes_use_quickfix=0
 
 " Toggle Gundo
 nnoremap <leader>u :GundoToggle<CR>
+
+" Jedi Vim
+let g:jedi#popup_on_dot = 0
