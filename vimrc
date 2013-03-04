@@ -130,3 +130,6 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Jedi Vim
+let g:jedi#popup_on_dot = 0
