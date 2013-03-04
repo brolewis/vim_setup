@@ -121,10 +121,12 @@ map <F12> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
 
 " Python tools
-"let g:pep8_map='<leader>8'
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 
 " Toggle Gundo
 nnoremap <leader>u :GundoToggle<CR>
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
