@@ -133,3 +133,6 @@ nmap <F8> :TagbarToggle<CR>
 
 " Jedi Vim
 let g:jedi#popup_on_dot = 0
+
+" Prevent <F1> help
+noremap <F1> <Esc>
