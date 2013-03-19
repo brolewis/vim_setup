@@ -26,6 +26,7 @@ set cursorline                    " Highlight the current line
 set showmatch                     " Briefly jump to a paren once it's balanced
 set backspace=indent,eol,start    " Intuitive backspacing in insert mode
 set spelllang=en_us               " Set spell checking language
+set tildeop                       " Tilde is now an operation
 
 " Menu Completion
 set wildmenu                      " Menu completion in command mode on <Tab>
@@ -69,13 +70,6 @@ set listchars=tab:>-              " Show tab chars clearly
 
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
-
-" Reload Vimrc
-if has("win32")
-    map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-else
-    map <silent> <leader>V :source ~/_vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-endif
 
 " open/close the quickfix window
 nmap <leader>c :copen<CR>
