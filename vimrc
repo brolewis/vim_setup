@@ -97,13 +97,13 @@ else
 endif
 
 " External backup dir
-if has("win32")
-    let tmppath="$TMP/vimswaps"
-else
-    let tmppath="/tmp/vimswaps"
+let swap_path=$HOME . '/.vim_swaps'
+if empty(glob(swap_path))
+    call mkdir(swap_path, 'p')
 endif
-execute "set backupdir=".tmppath
-execute "set directory=".tmppath
+
+execute "set backupdir=".swap_path
+execute "set directory=".swap_path
 
 " Toggle Line Numbering mode
 function! g:ToggleNuMode()
@@ -133,3 +133,6 @@ nmap <F8> :TagbarToggle<CR>
 
 " Jedi Vim
 let g:jedi#popup_on_dot = 0
+
+" Prevent <F1> help
+noremap <F1> <Esc>
