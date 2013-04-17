@@ -132,9 +132,6 @@ let g:jedi#popup_on_dot = 0
 noremap <F1> <Esc>
 
 " Git Gutter
-if has('gui_win32')
-    let g:gitgutter_enabled = 0
-endif
-map <F10> :GitGutterToggle<CR>
+let g:gitgutter_all_on_focusgained = 0
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
