@@ -13,7 +13,11 @@ filetype on                       " try to detect filetypes
 filetype plugin indent on         " enable plugins for filetype
 set nocompatible                  " Don't be compatible with vi
 colors zenburn                    " Awesomest theme EVAR
-set guifont=Consolas:h12          " BEST. FONT. EVER.
+if has("gui_macvim")
+    set guifont=Consolas:h14      " BEST. FONT. EVER.
+else
+    set guifont=Consolas:h12      " BEST. FONT. EVER.
+endif
 set nowrap                        " Don't wrap text
 command! W :w                     " Map W to w
 
