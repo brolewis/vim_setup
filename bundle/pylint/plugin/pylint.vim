@@ -11,7 +11,7 @@ function! <SID>PyLint()
     set grepformat&vim
     set grepformat&vim
     let &grepformat = '%f:%l:%m'
-    let &grepprg = 'pylint -r n -f parseable'
+    let &grepprg = 'pylint -r n --msg-template="{path}:{line}: [{msg_id}({symbol}), {obj}] {msg}"'
     if &readonly == 0 | update | endif
     silent! grep! %
     let &grepformat = l:grepformat_save
