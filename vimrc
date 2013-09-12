@@ -14,7 +14,7 @@ filetype plugin indent on         " enable plugins for filetype
 set nocompatible                  " Don't be compatible with vi
 colors zenburn                    " Awesomest theme EVAR
 if has("gui_macvim")
-    set guifont=Consolas:h14      " BEST. FONT. EVER.
+    set guifont=Source\ Code\ Pro:h14
 else
     set guifont=Consolas:h12      " BEST. FONT. EVER.
 endif
