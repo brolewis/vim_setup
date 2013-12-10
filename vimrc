@@ -43,6 +43,7 @@ set guioptions-=l                 " Hide the left-hand scroll bar
 set guioptions-=T                 " Hide the toolbar
 set guioptions-=m                 " Hide the menu bar
 set tabpagemax=100                " Increase max tab pages
+set laststatus=2                  " Show Airline
 
 " Code folding
 set foldmethod=indent             " Fold code on indent
