@@ -16,7 +16,7 @@ colors zenburn                    " Awesomest theme EVAR
 if has("gui_macvim")
     set guifont=Source\ Code\ Pro\ Light:h14
 else
-    set guifont=Consolas:h12      " BEST. FONT. EVER.
+    set guifont=Source\ Code\ Pro:h12
 endif
 set nowrap                        " Don't wrap text
 command! W :w                     " Map W to w
@@ -137,5 +137,6 @@ noremap <F1> <Esc>
 
 " Git Gutter
 let g:gitgutter_all_on_focusgained = 0
+let g:gitgutter_realtime = 0
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
