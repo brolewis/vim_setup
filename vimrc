@@ -118,6 +118,7 @@ nnoremap <C-l> :call g:ToggleNuMode()<CR>
 map <F2> :NERDTreeToggle Workspace<CR>
 map <F12> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
+let NERDTreeQuitOnOpen = 1
 
 " Python tools
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
