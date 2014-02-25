@@ -95,12 +95,11 @@ else
     autocmd FileType python OverLength /\%80v.\+/
 endif
 
-" External backup dir
+" Change swap path
 let swap_path=$HOME . '/.vim_swaps'
 if empty(glob(swap_path))
     call mkdir(swap_path, 'p')
 endif
-
 execute "set backupdir=".swap_path
 execute "set directory=".swap_path
 
@@ -118,6 +117,7 @@ nnoremap <C-l> :call g:ToggleNuMode()<CR>
 map <F2> :NERDTreeToggle Workspace<CR>
 map <F12> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
+let NERDTreeQuitOnOpen = 1
 
 " Python tools
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
