@@ -73,6 +73,10 @@ set autoindent                    " Auto indent
 set list                          " Print all characters
 set listchars=tab:>-              " Show tab chars clearly
 
+" Spellcheck rst files
+autocmd FileType gitcommit setlocal spell
+autocmd FileType rst setlocal spell
+
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -141,3 +145,14 @@ let g:gitgutter_all_on_focusgained = 0
 let g:gitgutter_realtime = 0
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+
+" Vim-Wordy
+nnoremap <silent> K :NextWordy<cr>
+
+" Vim-Pencil
+let g:pencil#wrapModeDefault = 'hard'
+augroup pencil
+  autocmd!
+  autocmd FileType markdown call pencil#init()
+  autocmd FileType rst call pencil#init({'wrap': 'soft'})
+augroup END
