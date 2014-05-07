@@ -128,12 +128,6 @@ autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 
-" Toggle Gundo
-nnoremap <leader>u :GundoToggle<CR>
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-
 " Jedi Vim
 let g:jedi#popup_on_dot = 0
 
@@ -156,3 +150,6 @@ augroup pencil
   autocmd FileType markdown call pencil#init()
   autocmd FileType rst call pencil#init({'wrap': 'soft'})
 augroup END
+
+" Ctrlp
+let g:ctrlp_working_path_mode = 'ra'
