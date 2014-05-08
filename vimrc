@@ -147,7 +147,7 @@ nnoremap <silent> K :NextWordy<cr>
 let g:pencil#wrapModeDefault = 'hard'
 augroup pencil
   autocmd!
-  autocmd FileType markdown call pencil#init()
+  autocmd FileType markdown call pencil#init({'wrap': 'soft'})
   autocmd FileType rst call pencil#init({'wrap': 'soft'})
 augroup END
 
