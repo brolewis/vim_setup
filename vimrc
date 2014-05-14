@@ -73,6 +73,10 @@ set autoindent                    " Auto indent
 set list                          " Print all characters
 set listchars=tab:>-              " Show tab chars clearly
 
+" Spellcheck rst files
+autocmd FileType gitcommit setlocal spell
+autocmd FileType rst setlocal spell
+
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
@@ -95,12 +99,11 @@ else
     autocmd FileType python OverLength /\%80v.\+/
 endif
 
-" External backup dir
+" Change swap path
 let swap_path=$HOME . '/.vim_swaps'
 if empty(glob(swap_path))
     call mkdir(swap_path, 'p')
 endif
-
 execute "set backupdir=".swap_path
 execute "set directory=".swap_path
 
@@ -125,12 +128,6 @@ autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 
-" Toggle Gundo
-nnoremap <leader>u :GundoToggle<CR>
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
-
 " Jedi Vim
 let g:jedi#popup_on_dot = 0
 
@@ -142,3 +139,17 @@ let g:gitgutter_all_on_focusgained = 0
 let g:gitgutter_realtime = 0
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
+
+" Vim-Wordy
+nnoremap <silent> K :NextWordy<cr>
+
+" Vim-Pencil
+let g:pencil#wrapModeDefault = 'hard'
+augroup pencil
+  autocmd!
+  autocmd FileType markdown call pencil#init({'wrap': 'soft'})
+  autocmd FileType rst call pencil#init({'wrap': 'soft'})
+augroup END
+
+" Ctrlp
+let g:ctrlp_working_path_mode = 'ra'
