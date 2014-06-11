@@ -135,8 +135,7 @@ let g:jedi#popup_on_dot = 0
 noremap <F1> <Esc>
 
 " Git Gutter
-let g:gitgutter_all_on_focusgained = 0
-let g:gitgutter_realtime = 0
+let g:gitgutter_sign_removed_first_line = "^"
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
