@@ -96,7 +96,7 @@ if exists('+colorcolumn')
     highlight ColorColumn guibg=#262626
 else
     autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-    autocmd FileType python OverLength /\%80v.\+/
+    autocmd FileType python match OverLength /\%80v.\+/
 endif
 
 " Change swap path
