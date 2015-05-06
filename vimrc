@@ -44,6 +44,11 @@ set guioptions-=T                 " Hide the toolbar
 set guioptions-=m                 " Hide the menu bar
 set tabpagemax=100                " Increase max tab pages
 set laststatus=2                  " Show Airline
+if has("gui_running")
+    " GUI is running or is about to start.
+    "   " Maximize gvim window.
+    set lines=999 columns=999
+endif
 
 " Code folding
 set foldmethod=indent             " Fold code on indent
@@ -127,9 +132,6 @@ let NERDTreeQuitOnOpen = 1
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
-
-" Jedi Vim
-let g:jedi#popup_on_dot = 0
 
 " Prevent <F1> help
 noremap <F1> <Esc>
