@@ -80,6 +80,7 @@ set listchars=tab:>-              " Show tab chars clearly
 
 " Spellcheck rst files
 autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd FileType rst setlocal spell
 
 " for when we forget to use sudo to open/edit a file
@@ -156,3 +157,6 @@ augroup END
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_regexp = 1
+
+" XML Editing
+nmap <leader>x !!xmllint --format -<CR>
