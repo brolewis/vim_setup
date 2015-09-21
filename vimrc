@@ -159,4 +159,4 @@ let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_regexp = 1
 
 " XML Editing
-nmap <leader>x !!xmllint --format -<CR>
+nmap <silent> <leader>x :%!xmllint --format --recover - 2>/dev/null<CR>
