@@ -51,8 +51,9 @@ if has("gui_running")
 endif
 
 " Code folding
-set foldmethod=indent             " Fold code on indent
-set foldlevel=99                  " Open the file with all code unfolded
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_docstring = 0
+set foldlevel=99
 map <leader>f za                  " Remap code folding key
 
 " Vim Tab behavior
