@@ -1,7 +1,18 @@
-" Pathogen
+" Vim-Plug
 filetype off
-call pathogen#infect()
-call pathogen#helptags()
+call plug#begin()
+Plug 'nvie/vim-flake8'
+Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-airline'
+Plug 'reedes/vim-wordy'
+Plug 'reedes/vim-pencil'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+call plug#end()
 
 " Windows-like behavior
 source $VIMRUNTIME/mswin.vim
