@@ -145,6 +145,8 @@ let NERDTreeQuitOnOpen = 1
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
+let g:flake8_show_in_gutter=1
+let g:flake8_show_in_file=1
 
 " Prevent <F1> help
 noremap <F1> <Esc>
@@ -172,3 +174,23 @@ let g:ctrlp_regexp = 1
 
 " XML Editing
 nmap <silent> <leader>x :%!xmllint --format --recover - 2>/dev/null<CR>
+
+" YouCompleteMe
+let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'qf': 1,
+      \ 'notes': 1,
+      \ 'markdown': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'mail': 1,
+      \ 'rst': 1
+      \}
+
+" ctags
+set tags=tags;/
