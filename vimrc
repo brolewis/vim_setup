@@ -110,7 +110,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Show characters that go over 79 chars for Python files
 if exists('+colorcolumn')
-    autocmd FileType python set colorcolumn=80
+    autocmd FileType python set colorcolumn=80,100
     highlight ColorColumn guibg=#262626
 else
     autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -118,7 +118,7 @@ else
 endif
 
 " Change swap path
-let swap_path=$HOME . '/.vim_swaps'
+let swap_path=$HOME . '/.vim_swaps//'
 if empty(glob(swap_path))
     call mkdir(swap_path, 'p')
 endif
@@ -134,12 +134,6 @@ function! g:ToggleNuMode()
     endif
 endfunc
 nnoremap <C-l> :call g:ToggleNuMode()<CR>
-
-" NERDTree
-map <F2> :NERDTreeToggle Workspace<CR>
-map <F12> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.vim#', '\~$', '\.pyc']
-let NERDTreeQuitOnOpen = 1
 
 " Python tools
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
