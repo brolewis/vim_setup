@@ -11,7 +11,7 @@ Plug 'reedes/vim-wordy'
 Plug 'reedes/vim-pencil'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tmhedberg/SimpylFold'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'maralla/completor.vim'
 call plug#end()
 
 " Windows-like behavior
@@ -168,23 +168,6 @@ let g:ctrlp_regexp = 1
 
 " XML Editing
 nmap <silent> <leader>x :%!xmllint --format --recover - 2>/dev/null<CR>
-
-" YouCompleteMe
-let g:ycm_path_to_python_interpreter = "/usr/local/bin/python"
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar': 1,
-      \ 'qf': 1,
-      \ 'notes': 1,
-      \ 'markdown': 1,
-      \ 'unite': 1,
-      \ 'text': 1,
-      \ 'vimwiki': 1,
-      \ 'pandoc': 1,
-      \ 'infolog': 1,
-      \ 'mail': 1,
-      \ 'rst': 1
-      \}
 
 " ctags
 set tags=tags;/
