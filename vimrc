@@ -15,7 +15,6 @@ Plug 'maralla/completor.vim'
 call plug#end()
 
 " Windows-like behavior
-source $VIMRUNTIME/mswin.vim
 behave mswin
 
 " Basic Settings
