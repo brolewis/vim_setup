@@ -31,6 +31,7 @@ else
 endif
 set nowrap                        " Don't wrap text
 command! W :w                     " Map W to w
+command! Wq :wq                     " Map W to w
 
 " Moving around, editing
 set number                        " Display line numbers
@@ -90,9 +91,10 @@ set autoindent                    " Auto indent
 set list                          " Print all characters
 set listchars=tab:>-              " Show tab chars clearly
 
-" Spellcheck rst files
+" Better Git commit messages
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+" Spellcheck rst files
 autocmd FileType rst setlocal spell
 
 " for when we forget to use sudo to open/edit a file
