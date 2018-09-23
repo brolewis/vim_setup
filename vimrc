@@ -12,6 +12,7 @@ Plug 'reedes/vim-pencil'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'maralla/completor.vim'
+Plug 'ambv/black'
 call plug#end()
 
 " Windows-like behavior
@@ -30,7 +31,7 @@ else
 endif
 set nowrap                        " Don't wrap text
 command! W :w                     " Map W to w
-command! Wq :wq                     " Map W to w
+command! Wq :wq                   " Map Wq to wq
 
 " Moving around, editing
 set number                        " Display line numbers
@@ -93,6 +94,7 @@ set listchars=tab:>-              " Show tab chars clearly
 " Better Git commit messages
 autocmd FileType gitcommit setlocal spell
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+
 " Spellcheck rst files
 autocmd FileType rst setlocal spell
 
@@ -137,7 +139,11 @@ endfunc
 nnoremap <C-l> :call g:ToggleNuMode()<CR>
 
 " Python tools
+if has('python3')
+  silent! python3 1
+endif
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
+autocmd BufWritePre *.py execute ':Black'
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 let g:flake8_show_in_gutter=1
@@ -162,10 +168,16 @@ augroup pencil
   autocmd FileType rst call pencil#init({'wrap': 'soft'})
 augroup END
 
+set completeopt=longest
+
+
 " Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_regexp = 1
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_use_caching = 0
+
 
 " XML Editing
 nmap <silent> <leader>x :%!xmllint --format --recover - 2>/dev/null<CR>
