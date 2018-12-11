@@ -13,6 +13,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'maralla/completor.vim'
 Plug 'ambv/black'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 " Windows-like behavior
@@ -23,7 +24,9 @@ syntax on                         " syntax highlighing
 filetype on                       " try to detect filetypes
 filetype plugin indent on         " enable plugins for filetype
 set nocompatible                  " Don't be compatible with vi
-colors zenburn                    " Awesomest theme EVAR
+colorscheme codedark
+let g:airline_theme = 'codedark'
+
 if has("gui_macvim")
     set guifont=Source\ Code\ Pro\ Light:h14
 else
