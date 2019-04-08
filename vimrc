@@ -14,6 +14,10 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'maralla/completor.vim'
 Plug 'ambv/black'
 Plug 'tomasiser/vim-code-dark'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ddrscott/vim-side-search'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " Windows-like behavior
@@ -141,7 +145,7 @@ function! g:ToggleNuMode()
 endfunc
 nnoremap <C-l> :call g:ToggleNuMode()<CR>
 
-" Python tools
+""" Python tools
 if has('python3')
   silent! python3 1
 endif
@@ -152,18 +156,18 @@ let g:pyflakes_use_quickfix=0
 let g:flake8_show_in_gutter=1
 let g:flake8_show_in_file=1
 
-" Prevent <F1> help
+""" Prevent <F1> help
 noremap <F1> <Esc>
 
-" Git Gutter
+""" Git Gutter
 let g:gitgutter_sign_removed_first_line = "^"
 nmap <silent> ]h :<C-U>execute v:count1 . "GitGutterNextHunk"<CR>
 nmap <silent> [h :<C-U>execute v:count1 . "GitGutterPrevHunk"<CR>
 
-" Vim-Wordy
+""" Vim-Wordy
 nnoremap <silent> K :NextWordy<cr>
 
-" Vim-Pencil
+""" Vim-Pencil
 let g:pencil#wrapModeDefault = 'hard'
 augroup pencil
   autocmd!
@@ -173,17 +177,53 @@ augroup END
 
 set completeopt=longest
 
-
-" Ctrlp
+""" Ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_regexp = 1
 let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 
-
-" XML Editing
+""" XML Editing
 nmap <silent> <leader>x :%!xmllint --format --recover - 2>/dev/null<CR>
 
-" ctags
+""" ctags
 set tags=tags;/
+
+""" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+" Open NERDTree when no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open NERDTree when a directory is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+call NERDTreeHighlightFile('py', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('json', 'blue', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('js', 'red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('rst', 'magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('md', 'magenta', 'none', '#3366FF', '#151515')
+
+""" Vim Side Search
+set splitbelow
+let g:side_search_splitter = 'new'
+let g:side_search_split_pct = 0.4
+" Create an shorter `SS` command
+command! -complete=file -nargs=+ SS execute 'SideSearch <args>'
+
+""" TagBar
+nmap <silent> <leader>t :TagbarToggle<CR>
+
+""" Gutentag
+let g:gutentags_ctags_exclude = ['node_modules', '*.min.js']
+
+""" Black
+let g:black_virtualenv = '/usr/local/envs/black-py3.7'
