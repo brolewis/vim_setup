@@ -120,7 +120,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Show characters that go over 79 chars for Python files
 if exists('+colorcolumn')
-    autocmd FileType python set colorcolumn=80,100
+    autocmd FileType python set colorcolumn=88
     highlight ColorColumn guibg=#262626
 else
     autocmd FileType python highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -150,7 +150,7 @@ if has('python3')
   silent! python3 1
 endif
 autocmd FileType python map <buffer> <leader>8 :call Flake8()<CR>
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
 let g:pylint_map='<leader>l'
 let g:pyflakes_use_quickfix=0
 let g:flake8_show_in_gutter=1
@@ -224,6 +224,3 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 
 """ Gutentag
 let g:gutentags_ctags_exclude = ['node_modules', '*.min.js']
-
-""" Black
-let g:black_virtualenv = '/usr/local/envs/black-py3.7'
